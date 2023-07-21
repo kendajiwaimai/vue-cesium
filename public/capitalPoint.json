@@ -1,0 +1,174 @@
+[
+  {
+    "name": "沈阳市",
+    "coordinateX": "123.429092",
+    "coordinateY":"41.796768"
+  },
+  {
+    "name": "长春市",
+    "coordinateX": "125.324501", 
+    "coordinateY":"43.886841"
+  },
+  {
+    "name": "哈尔滨市",
+    "coordinateX": "126.642464",
+    "coordinateY":"45.756966"
+  },
+  {
+    "name": "北京市",
+    "coordinateX": "116.405289", 
+    "coordinateY":"39.904987"
+  },
+  {
+    "name": "天津市",
+    "coordinateX": "117.190186",
+    "coordinateY":"39.125595"
+  },
+  {
+    "name": "呼和浩特市",
+    "coordinateX": "111.751990", 
+    "coordinateY":"40.841490"
+  },
+  {
+    "name": "银川市",
+    "coordinateX": "106.232480",
+    "coordinateY":"38.486440"
+  },
+  {
+    "name": "太原市",
+    "coordinateX": "112.549248", 
+    "coordinateY":"37.857014"
+  },
+  {
+    "name": "石家庄市",
+    "coordinateX": "114.502464",
+    "coordinateY":"38.045475"
+  },
+  {
+    "name": "济南市",
+    "coordinateX": "117.000923", 
+    "coordinateY":"36.675808"
+  },
+  {
+    "name": "郑州市",
+    "coordinateX": "113.665413",
+    "coordinateY":"34.757977"
+  },
+  {
+    "name": "西安市",
+    "coordinateX": "108.948021", 
+    "coordinateY":"34.263161"
+  },
+  {
+    "name": "武汉市",
+    "coordinateX": "114.298569",
+    "coordinateY":"30.584354"
+  },
+  {
+    "name": "南京市",
+    "coordinateX": "118.76741", 
+    "coordinateY":"32.041546"
+  },
+  {
+    "name": "合肥市",
+    "coordinateX": "117.283043",
+    "coordinateY":"31.861191"
+  },
+  {
+    "name": "上海市",
+    "coordinateX": "121.472641", 
+    "coordinateY":"31.231707"
+  },
+  {
+    "name": "长沙市",
+    "coordinateX": "112.982277",
+    "coordinateY":"28.19409"
+  },
+
+  {
+    "name": "南昌市",
+    "coordinateX": "115.892151", 
+    "coordinateY":"28.676493"
+  },
+  {
+    "name": "杭州市",
+    "coordinateX": "120.15358",
+    "coordinateY":"30.287458"
+  },
+  {
+    "name": "福州市",
+    "coordinateX": "119.306236", 
+    "coordinateY":"26.075302"
+  },
+  {
+    "name": "广州市",
+    "coordinateX": "113.28064",
+    "coordinateY":"23.125177"
+  },
+  {
+    "name": "台北市",
+    "coordinateX": "121.5200760", 
+    "coordinateY":"25.0307240"
+  },
+  {
+    "name": "海口市",
+    "coordinateX": "110.199890",
+    "coordinateY":"20.044220"
+  },
+  {
+    "name": "南宁市",
+    "coordinateX": "108.320007", 
+    "coordinateY":"22.82402"
+  },
+  {
+    "name": "重庆市",
+    "coordinateX": "106.504959",
+    "coordinateY":"29.533155"
+  },
+  {
+    "name": "昆明市",
+    "coordinateX": "102.71225", 
+    "coordinateY":"25.040609"
+  },
+
+  {
+    "name": "贵阳市",
+    "coordinateX": "106.713478",
+    "coordinateY":"26.578342"
+  },
+  {
+    "name": "成都市",
+    "coordinateX": "104.065735", 
+    "coordinateY":"30.659462"
+  },
+  {
+    "name": "兰州市",
+    "coordinateX": "103.834170",
+    "coordinateY":"36.061380"
+  },
+  {
+    "name": "西宁市",
+    "coordinateX": "101.777820", 
+    "coordinateY":"36.617290"
+  },
+  {
+    "name": "拉萨市",
+    "coordinateX": "91.11450",
+    "coordinateY":"29.644150"
+  },
+  {
+    "name": "乌鲁木齐市",
+    "coordinateX": "87.616880", 
+    "coordinateY":"43.826630"
+  },
+  {
+    "name": "香港",
+    "coordinateX": "114.165460",
+    "coordinateY":"22.275340"
+  },
+  {
+    "name": "澳门",
+    "coordinateX": "113.549130", 
+    "coordinateY":"22.198750"
+  }
+]
