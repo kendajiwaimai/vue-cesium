@@ -1,24 +1,7 @@
-# vue-cesium
+# 3D地图
 
-## Project setup
-```
-npm install
-```
+## 简介
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+使用cesium引擎和vue框架来编写的3D地图
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
