@@ -1,4 +1,5 @@
 import store from '@/store'
+import * as cesiumUtils from './cesiumUtils.js'
 import chinaArea from './chinaArea.json'
 import provinceArea from './provinceArea.json'
 
@@ -40,6 +41,27 @@ export default class GisGraph {
     // 开启抗锯齿
     this.viewer.scene.fxaa = true;
     this.viewer.scene.postProcessStages.fxaa.enabled = true;
+    // 设置名字的备注样式
+    const nameOverlay = cesiumUtils.setNameOverlay(this.viewer)
+    /******注册场景事件***/
+    const handler = new Cesium.ScreenSpaceEventHandler(this.viewer.scene.canvas);
+    // 注册鼠标移动事件
+    handler.setInputAction((movement) => {
+      const pickedFeature = this.viewer.scene.pick(movement.endPosition);
+      const {pointEntity} = store.state
+      if(pointEntity) {
+        pointEntity.outlineWidth = 0
+        pointEntity.outlineColor = null
+      }
+      if (pickedFeature && pickedFeature.id) {
+        // 点资源
+        cesiumUtils.pointModal(pickedFeature, this.viewer, nameOverlay, movement)
+      } else {
+        // 鼠标样式改为默认箭头型
+        this.viewer._container.style.cursor = "default";
+        nameOverlay.style.display = 'none'
+      }
+    }, Cesium.ScreenSpaceEventType.MOUSE_MOVE)
     // 设置镜头初始位置
     this.resetMapView();
     // 提交地图实例

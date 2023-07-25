@@ -11,11 +11,15 @@ const Cesium = window.Cesium
 export default new Vuex.Store({
   state: {
     graph: null, // 态势图的实例
+    pointEntity: null, // 鼠标移动到点上之后的动画效果
   },
   mutations: {
     setGisGraph(state, graph) {
       state.graph = graph
-    }
+    },
+    setPointEntity(state, pointEntity) {
+      state.pointEntity = pointEntity
+    },
   },
   actions: {
     async initPoints({dispatch}) {
@@ -23,8 +27,6 @@ export default new Vuex.Store({
       const {data} = await capitalPoint()
       // 绘制点
       data.forEach(point => {
-        point.size = 12
-        point.color = "#00FF4E"
         dispatch('addPoint', point)
       })
     },
