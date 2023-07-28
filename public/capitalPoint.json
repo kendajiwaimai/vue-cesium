@@ -26,7 +26,7 @@
   {
     "name": "北京市",
     "size": 12,
-    "color": "#00FF4E",
+    "color": "#FF0000",
     "type": "point",
     "coordinateX": "116.405289", 
     "coordinateY":"39.904987"

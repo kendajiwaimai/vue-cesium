@@ -27,9 +27,18 @@ export default new Vuex.Store({
       const {data} = await capitalPoint()
       // 绘制点
       data.forEach(point => {
+        if (point.name === '北京市') {
+          // 添加声浪
+          dispatch('addRedPoint', point)
+        } 
         dispatch('addPoint', point)
       })
     },
+    /**
+     * 添加像素点
+     * @param state
+     * @param point 点对象
+     */
     addPoint({state}, point) {
       const {graph} = state
       const entity = {
@@ -55,6 +64,57 @@ export default new Vuex.Store({
         }
       }
       graph.entities.add(entity)
-    }
+    },
+    /**
+     *  添加红色声浪
+     * @param state
+     * @param point 点对象
+     */
+    addRedPoint({state}, point) {
+      const {graph} = state
+      //声浪动画的数据
+      const data = {
+        height: 0,
+        minR: 10000,
+        maxR: 100000.0,
+        deviationR: 500.0,//每次圆增加的大小
+      }
+      let r1 = data.minR, r2 = data.minR;
+      const changeR1 = function () {
+        r1 = r1 + data.deviationR
+        if (r1 >= data.maxR) {
+          r1 = data.minR;
+        }
+        return r1;
+      }
+      const changeR2 = function () {
+        r2 = r2 + data.deviationR;
+        if (r2 >= data.maxR) {
+          r2 = data.minR;
+        }
+        return r2;
+      }
+      graph.entities.add({
+        item: {
+          ...point,
+          ...data,
+        },
+        name: point.name,
+        position: Cesium.Cartesian3.fromDegrees(point.coordinateX, point.coordinateY, 0),
+        ellipse: {
+          semiMinorAxis: new Cesium.CallbackProperty(changeR1, false),
+          semiMajorAxis: new Cesium.CallbackProperty(changeR2, false),
+          height: data.height,
+          material: new Cesium.ImageMaterialProperty({
+            image: require("@/assets/red-image.png"),
+            repeat: new Cesium.Cartesian2(1.0, 1.0),
+            transparent: true,
+            color: new Cesium.CallbackProperty(function () {
+              return Cesium.Color.WHITE.withAlpha(1)  //entity的颜色透明 并不影响材质，并且 entity也会透明哦
+            }, false)
+          })
+        }
+      })
+    },
   },
 })

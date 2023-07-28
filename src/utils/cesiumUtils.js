@@ -49,7 +49,7 @@ export function setNameOverlay(viewer) {
 // 点详情的飘窗
 export function pointModal(pickedFeature, viewer, nameOverlay, movement) {
   const _item = pickedFeature.id.item;
-  if (_item && _item.type === "point") {
+  if (_item && _item.type === "point" && (pickedFeature.primitive && pickedFeature.primitive.id)/*主要是避免移动到声浪素材上*/) {
     // 更改鼠标样式为手指
     viewer._container.style.cursor = "pointer";
     const pointEntity = pickedFeature.primitive.id.point
