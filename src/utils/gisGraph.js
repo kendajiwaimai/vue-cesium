@@ -41,10 +41,23 @@ export default class GisGraph {
     // 开启抗锯齿
     this.viewer.scene.fxaa = true;
     this.viewer.scene.postProcessStages.fxaa.enabled = true;
+    // 阻止默认的双击事件行为的函数
+    const preventDefaultDblClick = function (event) {
+      event.preventDefault();
+    }
+    this.viewer.canvas.addEventListener('dblclick', preventDefaultDblClick, false)
     // 设置名字的备注样式
     const nameOverlay = cesiumUtils.setNameOverlay(this.viewer)
     /******注册场景事件***/
     const handler = new Cesium.ScreenSpaceEventHandler(this.viewer.scene.canvas);
+    // 注册鼠标左键点击事件
+    handler.setInputAction((e) => {
+      const pick = this.viewer.scene.pick(e.position);
+      if (pick && pick.id && pick.id.item){
+        const item = pick.id.item
+        this.flyToPoint(item)
+      }
+    }, Cesium.ScreenSpaceEventType.LEFT_CLICK);
     // 注册鼠标移动事件
     handler.setInputAction((movement) => {
       const pickedFeature = this.viewer.scene.pick(movement.endPosition);
@@ -83,7 +96,7 @@ export default class GisGraph {
   // 相机移动到指定位置
   flyToPoint(point) {
     this.viewer.camera.flyTo({
-      destination: Cesium.Cartesian3.fromDegrees(point.coordinateX, point.coordinateY, 40000), // 设置位置
+      destination: Cesium.Cartesian3.fromDegrees(point.coordinateX, point.coordinateY, 50000), // 设置位置
       orientation: {
         heading: Cesium.Math.toRadians(0), // 方向
         roll: 0,
